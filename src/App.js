@@ -4,6 +4,7 @@ import AddStudent from './Components/AddStudent';
 import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Register from './Components/Register';
+import AllStudents from './Components/AllStudents';
 
 function App() {
   return (
@@ -19,6 +20,9 @@ function App() {
         </Route>
         <Route exact path="/Register">
           <Register/>
+        </Route>
+        <Route exact path="/AllStudents">
+          <AllStudents/>
         </Route>
       </Switch>
     </div>

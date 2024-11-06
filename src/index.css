@@ -87,6 +87,15 @@
 .form-container form input:hover{
     border: 2px solid blueviolet;
 }
+.form-container form select {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    width: 100%;
+    margin: 10px 0;
+    padding: 6px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
 .form-container form button{
     border: 0;
     padding: 0;
