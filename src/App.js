@@ -5,6 +5,7 @@ import Login from './Components/Login';
 import Navbar from './Components/Navbar';
 import Register from './Components/Register';
 import AllStudents from './Components/AllStudents';
+import UpdateStudent from './Components/UpdateStudent';
 
 function App() {
   return (
@@ -15,15 +16,19 @@ function App() {
       <Route exact path="/">
         <Login/>
         </Route>
-        <Route exact path="/AddStudent">
+        <Route path="/AddStudent">
         <AddStudent/>
         </Route>
-        <Route exact path="/Register">
+        <Route path="/Register">
           <Register/>
         </Route>
-        <Route exact path="/AllStudents">
+        <Route path="/AllStudents">
           <AllStudents/>
         </Route>
+        <Route path="/UpdateStudent/:_id">
+         <UpdateStudent/>
+      </Route>
+
       </Switch>
     </div>
     </Router>

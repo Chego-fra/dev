@@ -10,7 +10,7 @@ const AllStudents = () => {
   const navigate = useHistory();
 
   const loadEdit = (id) => {
-    navigate.push("/UpdateVendor/" + id);
+    navigate.push("/UpdateStudent/" + id);
   };
 
   const LoadStudent = (id) => {
@@ -61,17 +61,17 @@ const AllStudents = () => {
                           className="dropdown-item"
                           onClick={(e) => {
                             e.preventDefault();
-                            LoadStudent(r.vendor_id);
+                            LoadStudent(r._id);
                           }}
                         >
                           Details
                         </Link>
                         <Link
-                          to="/UpdateUser"
+                          to="/UpdateStudent/:_id"
                           className="dropdown-item"
                           onClick={(e) => {
                             e.preventDefault();
-                            loadEdit(r.vendor_id);
+                            loadEdit(r._id);
                           }}
                         >
                           Edit Student
