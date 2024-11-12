@@ -5,7 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Ensure Bootstrap CSS is import
 import { Dropdown } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 
+
 const AllStudents = () => {
+  const [unauthorized, setUnauthorized] = useState(false);
   const [records, setRecords] = useState([]);
   const navigate = useHistory();
 
@@ -18,17 +20,25 @@ const AllStudents = () => {
   };
 
   useEffect(() => {
+    const token = sessionStorage.getItem("accessToken");
     axios
-      .get("http://localhost:4000/getStudent")
+      .get("http://localhost:4000/api/getStudent", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      })
       .then((res) => {
         setRecords(res.data);
       })
       .catch((err) => {
-        if (err.response?.status === 403) {
-          console.log(err.message);
+        if (err.response && err.response.status === 403) {
+          setUnauthorized(true);
+        } else {
+          console.error("Error fetching data:", err);
         }
-      });
-  }, []);
+   });
+ }, []);
 
   return (
     <div className="d-flex justify-content-center align-items-center mx-auto col-lg-12 w-100">

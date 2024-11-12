@@ -21,13 +21,13 @@ const handleChange = (e) => {
 const handleSubmit = (e) => {
     e.preventDefault()
 
-    // const token = sessionStorage.getItem("access_token")
+    const token = sessionStorage.getItem("access_token")
 
-    axios.post('http://localhost:4000/addStudent', data,{
-    //    headers: {
-    //     Authorization: `Bearer ${token}`,
-    //     'Content-Type': 'application/json'
-    //    } 
+    axios.post('http://localhost:4000/api/addStudent', data,{
+       headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+       } 
     })
     .then((res)=>{
         toast.success('Student Added Succefuly', {

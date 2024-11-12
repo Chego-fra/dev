@@ -16,7 +16,7 @@ const UpdateStudent = () => {
     setLoading(true);
 
     axios
-      .get(`http://localhost:4000/getStudentById/` + _id, {
+      .get(`http://localhost:4000/api/getStudentById/` + _id, {
         // headers: {
         //   Authorization: Bearer ${token},
         //   "Content-Type": "application/json",
@@ -49,16 +49,16 @@ const UpdateStudent = () => {
   //.....................................................
   const saveStudent = (e) => {
     e.preventDefault();
-    // const token = sessionStorage.getItem("accessToken");
+    const token = sessionStorage.getItem("accessToken");
 
     setLoading(true);
 
     axios
-      .patch(`http://localhost:4000/patchStudents/` + _id, data, {
-        // headers: {
-        //   Authorization: Bearer ${token},
-        //   "Content-Type": "application/json",
-        // },
+      .patch(`http://localhost:4000/api/patchStudents/` + _id, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
       })
       // .then(res=>console.log(res))
       .then((res) => {
