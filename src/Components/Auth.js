@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const navigate = useHistory();
+  const history = useHistory();
 
   const login = async (email, password, onSuccess) => {
     setLoading(true);
@@ -35,10 +35,10 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const logout = () => {
+  const logout = (history ) => {
     setIsAuthenticated(false);
     sessionStorage.removeItem("accessToken");
-    navigate.push("/");
+    history.push("/");
   };
 
   return (

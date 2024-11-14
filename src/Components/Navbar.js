@@ -27,6 +27,11 @@ const Navbar = () =>{
                 AllStudents
                 </Link>
                 </div>
+                <div className="One">
+                <Link to="/LogOut" className="one">
+                Logout
+                </Link>
+                </div>
             </div>
         </div>
     )

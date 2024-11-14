@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { AuthContext } from "../Components/Auth"; 
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const { login, error, loading } = useContext(AuthContext); // Get login function and error from context
@@ -48,6 +49,7 @@ const Login = () => {
                         {loading ? "Logging in..." : "Login"}
                     </Button>
                 </Form>
+                <p>Don't have an account <Link to="/Register" className="register-link">Register?</Link></p>
             </div>
         </div>
     );

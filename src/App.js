@@ -6,6 +6,7 @@ import Navbar from './Components/Navbar';
 import Register from './Components/Register';
 import AllStudents from './Components/AllStudents';
 import UpdateStudent from './Components/UpdateStudent';
+import LogOut from './Components/LogOut';
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         </Route>
         <Route path="/UpdateStudent/:_id">
          <UpdateStudent/>
+      </Route>
+      <Route path="/LogOut">
+         <LogOut/>
       </Route>
 
       </Switch>
